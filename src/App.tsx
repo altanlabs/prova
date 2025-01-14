@@ -18,6 +18,7 @@ import Index from "./pages/index";
 import NotFound from "./pages/NotFound";
 import DashboardPage from "./pages/dashboard/DashboardPage";
 import PricingPage from "./pages/pricing";
+import DonatePage from "./pages/donate";
 import { useTheme } from "./theme/use-theme";
 
 const appName = "TikTok Video Publisher";
@@ -98,6 +99,7 @@ const App = () => {
                 >
                   <Route index element={<Index />} />
                   <Route path="pricing" element={<PricingPage />} />
+                  <Route path="donate" element={<DonatePage />} />
                   <Route path="*" element={<NotFound />} />
                 </Route>
 
