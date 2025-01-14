@@ -117,18 +117,19 @@ export default function IndexPage() {
                 <span>Ad Disclosure</span>
                 <Switch checked={isAd} onCheckedChange={(checked) => setIsAd(checked)} />
               </div>
+              <h3 className="text-lg font-semibold mb-2">Privacy Settings</h3>
               <div className="flex flex-col items-start gap-2 mb-4">
                 <label className="flex items-center gap-2">
                   <Checkbox checked={allowComments} onCheckedChange={(checked) => setAllowComments(checked === true)} />
-                  Allow Comments
+                  Comments
                 </label>
                 <label className="flex items-center gap-2">
                   <Checkbox checked={allowDuet} onCheckedChange={(checked) => setAllowDuet(checked === true)} />
-                  Allow Duet
+                  Duet
                 </label>
                 <label className="flex items-center gap-2">
                   <Checkbox checked={allowStitch} onCheckedChange={(checked) => setAllowStitch(checked === true)} />
-                  Allow Stitch
+                  Stitch
                 </label>
               </div>
               <Button size="lg" onClick={handlePublish}>
