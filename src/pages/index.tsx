@@ -35,9 +35,7 @@ export default function IndexPage() {
           <Input type="file" accept="video/*" onChange={handleVideoUpload} />
           {videoFile && (
             <video
-              className="mx-auto mt-4"
-              width="320"
-              height="240"
+              className="mx-auto mt-4 max-w-full h-auto"
               controls
               src={URL.createObjectURL(videoFile)}
             />
@@ -51,7 +49,7 @@ export default function IndexPage() {
           <select
             value={privacy}
             onChange={(e) => setPrivacy(e.target.value)}
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full border border-gray-300 rounded-md p-2 bg-white text-black"
           >
             <option value="Everyone">Everyone</option>
             <option value="Friends">Friends</option>
