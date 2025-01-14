@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -60,9 +59,6 @@ export default function IndexPage() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <Badge variant="secondary" className="mb-8 text-center block">
-        TikTok Video Publisher
-      </Badge>
       <Button size="lg" className="mb-8">
         Log In
       </Button>
