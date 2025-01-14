@@ -113,10 +113,6 @@ export default function IndexPage() {
                 <option value="Friends">Friends</option>
                 <option value="Only Me">Only Me</option>
               </select>
-              <div className="flex items-center justify-start gap-2 mb-4">
-                <span>Ad Disclosure</span>
-                <Switch checked={isAd} onCheckedChange={(checked) => setIsAd(checked)} />
-              </div>
               <h3 className="text-lg font-semibold mb-2">Privacy Settings</h3>
               <div className="flex flex-col items-start gap-2 mb-4">
                 <label className="flex items-center gap-2">
@@ -131,6 +127,10 @@ export default function IndexPage() {
                   <Checkbox checked={allowStitch} onCheckedChange={(checked) => setAllowStitch(checked === true)} />
                   Stitch
                 </label>
+              </div>
+              <div className="flex items-center justify-start gap-2 mb-4">
+                <span>Ad Disclosure</span>
+                <Switch checked={isAd} onCheckedChange={(checked) => setIsAd(checked)} />
               </div>
               <Button size="lg" onClick={handlePublish}>
                 Publish Video
