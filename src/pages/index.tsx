@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,7 +23,6 @@ const staggerContainer = {
 };
 
 export default function IndexPage() {
-  const navigate = useNavigate();
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [caption, setCaption] = useState("");
   const [privacy, setPrivacy] = useState("Everyone");
@@ -71,11 +68,11 @@ export default function IndexPage() {
             type="text"
             placeholder="Enter caption"
             value={caption}
-            onChange={(e) => setCaption(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
           />
           <Select
             value={privacy}
-            onChange={(e) => setPrivacy(e.target.value)}
+            onValueChange={(value: string) => setPrivacy(value)}
             className="w-full"
           >
             <option value="Everyone">Everyone</option>
