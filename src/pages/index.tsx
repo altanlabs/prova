@@ -63,6 +63,9 @@ export default function IndexPage() {
       <Badge variant="secondary" className="mb-8 text-center block">
         TikTok Video Publisher
       </Badge>
+      <Button size="lg" className="mb-8">
+        Log In
+      </Button>
       <div className="flex flex-col md:flex-row gap-8">
         {/* Video Preview Section */}
         <div className="flex-1">
@@ -94,9 +97,6 @@ export default function IndexPage() {
           <Card>
             <CardContent>
               <h2 className="text-2xl font-bold mb-4">Video Settings</h2>
-              <Button size="lg" className="mb-4">
-                Log In
-              </Button>
               <Input
                 type="text"
                 placeholder="Enter caption"
