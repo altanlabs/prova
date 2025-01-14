@@ -118,15 +118,18 @@ export default function IndexPage() {
                 <Switch checked={isAd} onCheckedChange={(checked) => setIsAd(checked)} />
               </div>
               <div className="flex flex-col items-start gap-2 mb-4">
-                <Checkbox checked={allowComments} onCheckedChange={(checked) => setAllowComments(checked === true)}>
+                <label className="flex items-center gap-2">
+                  <Checkbox checked={allowComments} onCheckedChange={(checked) => setAllowComments(checked === true)} />
                   Allow Comments
-                </Checkbox>
-                <Checkbox checked={allowDuet} onCheckedChange={(checked) => setAllowDuet(checked === true)}>
+                </label>
+                <label className="flex items-center gap-2">
+                  <Checkbox checked={allowDuet} onCheckedChange={(checked) => setAllowDuet(checked === true)} />
                   Allow Duet
-                </Checkbox>
-                <Checkbox checked={allowStitch} onCheckedChange={(checked) => setAllowStitch(checked === true)}>
+                </label>
+                <label className="flex items-center gap-2">
+                  <Checkbox checked={allowStitch} onCheckedChange={(checked) => setAllowStitch(checked === true)} />
                   Allow Stitch
-                </Checkbox>
+                </label>
               </div>
               <Button size="lg" onClick={handlePublish}>
                 Publish Video
