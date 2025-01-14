@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 
 export default function IndexPage() {
@@ -49,14 +48,15 @@ export default function IndexPage() {
             value={caption}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
           />
-          <Select
+          <select
             value={privacy}
-            onValueChange={(value: string) => setPrivacy(value)}
+            onChange={(e) => setPrivacy(e.target.value)}
+            className="w-full border border-gray-300 rounded-md p-2"
           >
             <option value="Everyone">Everyone</option>
             <option value="Friends">Friends</option>
             <option value="Only Me">Only Me</option>
-          </Select>
+          </select>
           <div className="flex items-center justify-center gap-2">
             <span>Ad Disclosure</span>
             <Switch checked={isAd} onCheckedChange={setIsAd} />
