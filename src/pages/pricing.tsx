@@ -30,7 +30,7 @@ export default function PricingPage() {
       </Card>
       <div className="text-center">
         <p className="text-xl mb-4">Everything is free and for the community. If you wish to support us, consider donating!</p>
-        <Button size="lg" variant="primary">
+        <Button size="lg" variant="default">
           Donate
         </Button>
       </div>
