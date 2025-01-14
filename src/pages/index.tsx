@@ -104,16 +104,16 @@ export default function IndexPage() {
           </select>
           <div className="flex items-center justify-center gap-2">
             <span>Ad Disclosure</span>
-            <Switch checked={isAd} onCheckedChange={setIsAd} />
+            <Switch checked={isAd} onCheckedChange={(checked) => setIsAd(checked)} />
           </div>
           <div className="flex flex-col items-start gap-2 mt-4">
-            <Checkbox checked={allowComments} onCheckedChange={setAllowComments}>
+            <Checkbox checked={allowComments} onCheckedChange={(checked) => setAllowComments(checked === true)}>
               Allow Comments
             </Checkbox>
-            <Checkbox checked={allowDuet} onCheckedChange={setAllowDuet}>
+            <Checkbox checked={allowDuet} onCheckedChange={(checked) => setAllowDuet(checked === true)}>
               Allow Duet
             </Checkbox>
-            <Checkbox checked={allowStitch} onCheckedChange={setAllowStitch}>
+            <Checkbox checked={allowStitch} onCheckedChange={(checked) => setAllowStitch(checked === true)}>
               Allow Stitch
             </Checkbox>
           </div>
