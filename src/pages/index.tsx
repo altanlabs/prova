@@ -1,26 +1,10 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
 
 export default function IndexPage() {
   const [videoFile, setVideoFile] = useState<File | null>(null);
@@ -41,12 +25,7 @@ export default function IndexPage() {
   return (
     <div className="container mx-auto px-4 py-16 space-y-32">
       {/* Video Upload Section */}
-      <motion.section
-        className="text-center space-y-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+      <section className="text-center space-y-6">
         <Badge variant="secondary" className="mb-4">
           TikTok Video Publisher
         </Badge>
@@ -73,7 +52,6 @@ export default function IndexPage() {
           <Select
             value={privacy}
             onValueChange={(value: string) => setPrivacy(value)}
-            className="w-full"
           >
             <option value="Everyone">Everyone</option>
             <option value="Friends">Friends</option>
@@ -87,7 +65,7 @@ export default function IndexPage() {
             Publish Video
           </Button>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }
