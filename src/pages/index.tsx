@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function IndexPage() {
   const [videoFile, setVideoFile] = useState<File | null>(null);
@@ -58,70 +59,82 @@ export default function IndexPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 space-y-32">
-      {/* Video Upload Section */}
-      <section className="text-center space-y-6">
-        <Badge variant="secondary" className="mb-4">
-          TikTok Video Publisher
-        </Badge>
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          Upload and Publish Your Video
-        </h1>
-        <Button size="lg" className="mt-4 mb-4">
-          Log In
-        </Button>
-        <div className="space-y-4">
-          <Input type="file" accept="video/*" onChange={handleVideoUpload} />
-          {videoFile && (
-            <div>
-              <video
-                className="mx-auto mt-4 max-w-full h-auto"
-                controls
-                src={URL.createObjectURL(videoFile)}
-              />
-              <div className="mt-4 text-left">
-                <p><strong>File Name:</strong> {videoInfo.name}</p>
-                <p><strong>Duration:</strong> {videoInfo.duration.toFixed(2)} seconds</p>
-                <p><strong>Resolution:</strong> {videoInfo.width}x{videoInfo.height}</p>
-                <p><strong>Format:</strong> {videoInfo.format}</p>
-              </div>
-            </div>
-          )}
-          <Input
-            type="text"
-            placeholder="Enter caption"
-            value={caption}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
-          />
-          <select
-            value={privacy}
-            onChange={(e) => setPrivacy(e.target.value)}
-            className="w-full border border-gray-300 rounded-md p-2 bg-white text-black"
-          >
-            <option value="Everyone">Everyone</option>
-            <option value="Friends">Friends</option>
-            <option value="Only Me">Only Me</option>
-          </select>
-          <div className="flex items-center justify-center gap-2">
-            <span>Ad Disclosure</span>
-            <Switch checked={isAd} onCheckedChange={(checked) => setIsAd(checked)} />
-          </div>
-          <div className="flex flex-col items-start gap-2 mt-4">
-            <Checkbox checked={allowComments} onCheckedChange={(checked) => setAllowComments(checked === true)}>
-              Allow Comments
-            </Checkbox>
-            <Checkbox checked={allowDuet} onCheckedChange={(checked) => setAllowDuet(checked === true)}>
-              Allow Duet
-            </Checkbox>
-            <Checkbox checked={allowStitch} onCheckedChange={(checked) => setAllowStitch(checked === true)}>
-              Allow Stitch
-            </Checkbox>
-          </div>
-          <Button size="lg" className="mt-4" onClick={handlePublish}>
-            Publish Video
-          </Button>
+    <div className="container mx-auto px-4 py-16">
+      <Badge variant="secondary" className="mb-8 text-center block">
+        TikTok Video Publisher
+      </Badge>
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Video Preview Section */}
+        <div className="flex-1">
+          <Card>
+            <CardContent>
+              <h2 className="text-2xl font-bold mb-4">Video Preview</h2>
+              <Input type="file" accept="video/*" onChange={handleVideoUpload} />
+              {videoFile && (
+                <div className="mt-4">
+                  <video
+                    className="mx-auto max-w-full h-auto"
+                    controls
+                    src={URL.createObjectURL(videoFile)}
+                  />
+                  <div className="mt-4 text-left">
+                    <p><strong>File Name:</strong> {videoInfo.name}</p>
+                    <p><strong>Duration:</strong> {videoInfo.duration.toFixed(2)} seconds</p>
+                    <p><strong>Resolution:</strong> {videoInfo.width}x{videoInfo.height}</p>
+                    <p><strong>Format:</strong> {videoInfo.format}</p>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </div>
-      </section>
+
+        {/* Settings Section */}
+        <div className="flex-1">
+          <Card>
+            <CardContent>
+              <h2 className="text-2xl font-bold mb-4">Video Settings</h2>
+              <Button size="lg" className="mb-4">
+                Log In
+              </Button>
+              <Input
+                type="text"
+                placeholder="Enter caption"
+                value={caption}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
+                className="mb-4"
+              />
+              <select
+                value={privacy}
+                onChange={(e) => setPrivacy(e.target.value)}
+                className="w-full border border-gray-300 rounded-md p-2 bg-white text-black mb-4"
+              >
+                <option value="Everyone">Everyone</option>
+                <option value="Friends">Friends</option>
+                <option value="Only Me">Only Me</option>
+              </select>
+              <div className="flex items-center justify-start gap-2 mb-4">
+                <span>Ad Disclosure</span>
+                <Switch checked={isAd} onCheckedChange={(checked) => setIsAd(checked)} />
+              </div>
+              <div className="flex flex-col items-start gap-2 mb-4">
+                <Checkbox checked={allowComments} onCheckedChange={(checked) => setAllowComments(checked === true)}>
+                  Allow Comments
+                </Checkbox>
+                <Checkbox checked={allowDuet} onCheckedChange={(checked) => setAllowDuet(checked === true)}>
+                  Allow Duet
+                </Checkbox>
+                <Checkbox checked={allowStitch} onCheckedChange={(checked) => setAllowStitch(checked === true)}>
+                  Allow Stitch
+                </Checkbox>
+              </div>
+              <Button size="lg" onClick={handlePublish}>
+                Publish Video
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
